@@ -1,3 +1,4 @@
+# https://gist.github.com/bradp/bea76b16d3325f5c47d4
 echo "Creating an SSH key for you..."
 ssh-keygen -t rsa
 
