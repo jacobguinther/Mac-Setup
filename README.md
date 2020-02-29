@@ -4,7 +4,15 @@
 xcode-select --install
 ```
 #### Install Homebrew
+```sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+or ( to bypass prompt )
+```sh
+ruby \
+  -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
+  </dev/null
+  ```
 #### Uninstall Homebrew (for testing)
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
