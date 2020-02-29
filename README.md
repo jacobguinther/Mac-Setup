@@ -40,8 +40,10 @@ brew cask list &&
 echo "\nNPM" &&
 npm list -g --depth 0
 ```
+## Vim Option #1
 #### Vim Config
 https://github.com/faktiva/vim-config
+## Vim Option #2
 #### Plugin Manager
 ```sh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
