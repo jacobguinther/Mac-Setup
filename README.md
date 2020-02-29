@@ -43,6 +43,11 @@ npm list -g --depth 0
 #### Vim Config
 https://github.com/faktiva/vim-config
 #### Plugin Manager
+```sh
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 https://github.com/junegunn/vim-plug
+https://github.com/junegunn/vim-plug/wiki/tutorial
 #### Find Plugins
 https://vimawesome.com/plugin/bash-support-vim
