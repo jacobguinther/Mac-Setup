@@ -37,3 +37,14 @@ brew cask list
 npm list -g --depth 0
 ```
   - nodemon
+  
+  #### Verify Installation
+```sh
+echo "===============" &&
+echo "\nBREW" &&
+brew list &&
+echo "\nBREW CASK" &&
+brew cask list &&
+echo "\nNPM" &&
+npm list -g --depth 0
+```
