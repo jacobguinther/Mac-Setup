@@ -9,7 +9,7 @@ xcode-select --install
 ```
 or ( to bypass prompt )
 ```sh
-ruby \
+/usr/bin/ruby \
   -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
   </dev/null
   ```
