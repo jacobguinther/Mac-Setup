@@ -53,3 +53,5 @@ https://github.com/junegunn/vim-plug
 https://github.com/junegunn/vim-plug/wiki/tutorial
 #### Find Plugins
 https://vimawesome.com/plugin/bash-support-vim
+#### MacOS User Preferences
+https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
