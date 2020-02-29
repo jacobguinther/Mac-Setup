@@ -25,6 +25,7 @@
   - spectacle
   - slack
   - postman
+  - nordvpn
 
 #### npm
   - nodemon
