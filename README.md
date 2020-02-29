@@ -10,7 +10,7 @@
   - minikube
   - mongodb-community
   - redis
-  - esling
+  - eslint
   - bash
   - awscli
 
