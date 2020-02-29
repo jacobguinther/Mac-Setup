@@ -40,3 +40,8 @@ brew cask list &&
 echo "\nNPM" &&
 npm list -g --depth 0
 ```
+#### Vim Config
+https://github.com/faktiva/vim-config
+#### .zshrc
+#### ZSH Theme
+#### vscode config
