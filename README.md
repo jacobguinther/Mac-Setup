@@ -42,6 +42,10 @@ npm list -g --depth 0
 ```
 #### Vim Config
 https://github.com/faktiva/vim-config
+#### Plugin Manager
+https://github.com/junegunn/vim-plug
+#### Find Plugins
+https://vimawesome.com/plugin/bash-support-vim
 #### .zshrc
 #### ZSH Theme
 #### vscode config
