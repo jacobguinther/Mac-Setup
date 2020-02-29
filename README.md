@@ -46,6 +46,3 @@ https://github.com/faktiva/vim-config
 https://github.com/junegunn/vim-plug
 #### Find Plugins
 https://vimawesome.com/plugin/bash-support-vim
-#### .zshrc
-#### ZSH Theme
-#### vscode config
