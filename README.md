@@ -1,8 +1,5 @@
 # Mac-Setup
 #### Brew
-```sh
-brew list
-```
   - yarn
   - nvm
   - tree
@@ -18,9 +15,6 @@ brew list
   - awscli
 
 #### Brew Cask
-```sh
-brew cask list
-```
   - visual-studio-code
   - bitwarden
   - brave-browser
@@ -33,9 +27,6 @@ brew cask list
   - postman
 
 #### npm
-```sh
-npm list -g --depth 0
-```
   - nodemon
   
   #### Verify Installation
