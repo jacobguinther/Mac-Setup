@@ -13,7 +13,7 @@ echo "BREW CASKS:"
 PRINT_COLUMNS "${CASKS_DEV[@]}"
 echo "OPTIONAL CASKS:"
 PRINT_COLUMNS "${CASKS_OTHER[@]}"
-#read -p "Would you like to install optional casks?: [Y/N]" CHOICE_OPTIONAL_CASKS
+read -p "Would you like to install optional casks?: [Y/N]" CHOICE_OPTIONAL_CASKS
 
 # @TODO Create SSH keys for Github
 # ssh-keygen -t rsa
