@@ -1,17 +1,64 @@
+#! /usr/local/bin/bash
+# HOMEBREW
+
+FORMULAE=(
+  awscli
+  bash
+  eslint
+  git
+  git flow
+  kubernetes-cli
+  minikube
+  mongodb-community
+  nvm
+  redis
+  trash
+  tree
+  wget
+  yarn
+  zsh
+)
+
+CASKS_DEV=(
+  bitwarden
+  brave-browser
+  docker
+  mysqlworkbench
+  nordvpn
+  postman
+  robo-3t
+  slack
+  spectacle
+  virtualbox
+  visual-studio-code
+)
+CASKS_OTHER=(
+calibre
+deluge
+dropbox
+gimp
+nordvpn
+plex
+vlc
+)
+
+
 PRINT_COLUMNS () {
+	printf "\n"
 	arr=("$@") 
 	for value in "${arr[@]}"
 	do
 		printf "%-8s\n" "$value"
 	done | column
+	printf "\n"
 }
 
-echo "This will only install the following dev dependencies."
-echo "BREW FORMULAE:"
+printf "\nINSTALLING THE FOLLOWING...\n\n"
+printf "BREW FORMULAE:"
 PRINT_COLUMNS "${FORMULAE[@]}"
-echo "BREW CASKS:"
+printf "BREW CASKS:"
 PRINT_COLUMNS "${CASKS_DEV[@]}"
-echo "OPTIONAL CASKS:"
+printf "OPTIONAL CASKS:"
 PRINT_COLUMNS "${CASKS_OTHER[@]}"
 read -p "Would you like to install optional casks?: [Y/N]" CHOICE_OPTIONAL_CASKS
 
@@ -54,25 +101,6 @@ echo "Installing other brew stuff..."
 brew install wget
 brew install trash
 
-# brew formulae
-FORMULAE=(
-  awscli
-  bash
-  eslint
-  git
-  git flow
-  kubernetes-cli
-  minikube
-  mongodb-community
-  nvm
-  redis
-  trash
-  tree
-  wget
-  yarn
-  zsh
-)
-
 echo "installing formulae"
 brew install ${FORMULAE[@]}
 
@@ -81,30 +109,6 @@ brew cleanup
 
 echo "Installing homebrew cask"
 brew cask
-
-# brew casks
-CASKS_DEV=(
-  bitwarden
-  brave-browser
-  docker
-  mysqlworkbench
-  nordvpn
-  postman
-  robo-3t
-  slack
-  spectacle
-  virtualbox
-  visual-studio-code
-)
-CASKS_OTHER=(
-calibre
-deluge
-dropbox
-gimp
-nordvpn
-plex
-vlc
-)
 
 # INSTALL CASKS
 echo "installing apps with Cask..."
@@ -118,6 +122,13 @@ echo "installing apps with Cask..."
 brew cask install ${CASKS_DEV[@]}
 
 
+echo "INSTALLING OPTIONAL CASKS"
+if [[ $CHOICE_OPTIONAL_CASKS == "y" || \
+	$CHOICE_OPTIONAL_CASKS == "Y" || \
+	$CHOICE_OPTIONAL_CASKS == "yes" || \
+	$CHOICE_OPTIONAL_CASKS == "Yes" ]]; then
+	brew cask install ${CASKS_OTHER[@]}
+fi
 
 brew cleanup
 
