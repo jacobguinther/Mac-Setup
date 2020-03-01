@@ -91,7 +91,6 @@ echo "installing apps with Cask..."
 # OPTION 2 (for current user)
 brew cask install ${CASKS[@]}
 
-brew cask cleanup
 brew cleanup
 
 echo "Setting some Mac settings..."
