@@ -106,6 +106,11 @@ brew install trash
 echo "installing formulae"
 brew install ${FORMULAE[@]}
 
+# setting up nvm
+mkdir ~/.nvm
+touch ~/.nvmrc
+# need to manually download the latest version
+
 echo "Cleaning up brew"
 brew cleanup
 
@@ -137,3 +142,4 @@ brew cleanup
 
 echo "Setting some Mac settings..."
 # @TODO Finder Window
+echo "Use NVM to download a version of node"
