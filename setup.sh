@@ -1,3 +1,10 @@
+# @TODO Create SSH keys for Github
+# ssh-keygen -t rsa
+# @TODO Add SSH keys to Github
+#echo "Please add this public key to Github \n"
+#echo "https://github.com/account/ssh \n"
+#read -p "Press [Enter] key after this..."
+
 echo "Installing xcode-stuff"
 xcode-select --install
 
@@ -80,4 +87,10 @@ echo "installing apps with Cask..."
 #brew cask install --appdir="/Applications" ${apps[@]}
 
 # OPTION 2 (for current user)
-brew cask install ${apps[@]}
+brew cask install ${CASKS[@]}
+
+brew cask cleanup
+brew cleanup
+
+echo "Setting some Mac settings..."
+# @TODO Finder Window
