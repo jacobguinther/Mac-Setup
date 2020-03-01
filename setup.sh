@@ -32,6 +32,7 @@ CASKS_DEV=(
   virtualbox
   visual-studio-code
 )
+
 CASKS_OTHER=(
 calibre
 deluge
@@ -62,6 +63,7 @@ printf "OPTIONAL CASKS:"
 PRINT_COLUMNS "${CASKS_OTHER[@]}"
 read -p "Would you like to install optional casks?: [Y/N]" CHOICE_OPTIONAL_CASKS
 
+# https://gist.github.com/Jonalogy/54091c98946cfe4f8cdab2bea79430f9
 # @TODO Create SSH keys for Github
 # ssh-keygen -t rsa
 # @TODO Add SSH keys to Github
