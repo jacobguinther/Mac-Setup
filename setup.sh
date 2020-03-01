@@ -1,3 +1,20 @@
+PRINT_COLUMNS () {
+	arr=("$@") 
+	for value in "${arr[@]}"
+	do
+		printf "%-8s\n" "$value"
+	done | column
+}
+
+echo "This will only install the following dev dependencies."
+echo "BREW FORMULAE:"
+PRINT_COLUMNS "${FORMULAE[@]}"
+echo "BREW CASKS:"
+PRINT_COLUMNS "${CASKS_DEV[@]}"
+echo "OPTIONAL CASKS:"
+PRINT_COLUMNS "${CASKS_OTHER[@]}"
+#read -p "Would you like to install optional casks?: [Y/N]" CHOICE_OPTIONAL_CASKS
+
 # @TODO Create SSH keys for Github
 # ssh-keygen -t rsa
 # @TODO Add SSH keys to Github
@@ -66,7 +83,7 @@ echo "Installing homebrew cask"
 brew cask
 
 # brew casks
-CASKS=(
+CASKS_DEV=(
   bitwarden
   brave-browser
   docker
@@ -79,6 +96,15 @@ CASKS=(
   virtualbox
   visual-studio-code
 )
+CASKS_OTHER=(
+calibre
+deluge
+dropbox
+gimp
+nordvpn
+plex
+vlc
+)
 
 # INSTALL CASKS
 echo "installing apps with Cask..."
@@ -89,7 +115,9 @@ echo "installing apps with Cask..."
 #brew cask install --appdir="/Applications" ${apps[@]}
 
 # OPTION 2 (for current user)
-brew cask install ${CASKS[@]}
+brew cask install ${CASKS_DEV[@]}
+
+
 
 brew cleanup
 
