@@ -123,13 +123,14 @@ echo "installing apps with Cask..."
 # OPTION 2 (for current user)
 brew cask install ${CASKS_DEV[@]}
 
-
-echo "INSTALLING OPTIONAL CASKS"
 if [[ $CHOICE_OPTIONAL_CASKS == "y" || \
-	$CHOICE_OPTIONAL_CASKS == "Y" || \
-	$CHOICE_OPTIONAL_CASKS == "yes" || \
-	$CHOICE_OPTIONAL_CASKS == "Yes" ]]; then
+ 	$CHOICE_OPTIONAL_CASKS == "Y" || \
+ 	$CHOICE_OPTIONAL_CASKS == "yes" || \
+ 	$CHOICE_OPTIONAL_CASKS == "Yes" ]]; then
+        echo "INSTALLING OPTIONAL CASKS"
 	brew cask install ${CASKS_OTHER[@]}
+else
+        echo "SKIPPING OPTIONAL CASKS"
 fi
 
 brew cleanup
