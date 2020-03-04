@@ -22,6 +22,12 @@ for ((i = 1 ; i <= "${#GITHUB_ACCOUNTS[@]}" ; i++)); do
 		$CHOICE == "yes" || \
 		$CHOICE == "Yes" ]]; then
 			echo "Creating SSH Keys"
+			ssh-keygen -t rsa -C "${!ACCOUNT[1]}" -f ~/.ssh/id_rsa_${!ACCOUNT[0]}
+			echo "Adding ssh key to ssh-agent"
+			ssh-add ~/.ssh/id_rsa_${!ACCOUNT[0]}
+			pbcopy < ~/.ssh/id_rsa_${!ACCOUNT[0]}
+			echo "Your ssh key for '${!ACCOUNT[0]}' has been copied!"
+			read -p "Please go add it to your GitHub Account"
 		else
 			echo "Skipping '${!ACCOUNT[0]}'"
 	fi
