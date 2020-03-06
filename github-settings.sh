@@ -37,11 +37,12 @@ for ((i = 0 ; i <= (( "${#GITHUB_ACCOUNTS[@]}" - 1 )) ; i++)); do
 				touch ~/Development/$GITHUB_USERNAME/.gitconfig
 				
 				cat << EOF >> ~/.ssh/config 
+
 #GitHub Account: $GITHUB_USERNAME
   Host github.com-$GITHUB_USERNAME
   HostName github.com
   User git
-  IdentityFile ~/.ssh/github-$GITHUB_USERNAME
+  IdentityFile ~/.ssh/id_rsa_$GITHUB_USERNAME
 EOF
 				cat << EOF >> ~/Development/$GITHUB_USERNAME/.gitconfig 
 [user]
