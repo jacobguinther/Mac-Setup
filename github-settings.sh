@@ -53,7 +53,7 @@ EOF
 				echo "Adding ssh key to ssh-agent"
 				ssh-add ~/.ssh/id_rsa_$GITHUB_USERNAME
 				pbcopy < ~/.ssh/id_rsa_$GITHUB_USERNAME
-				echo "Your ssh key for '$GITHUB_USERNAME' has been copied!"
+				printf "\nYour ssh key for '$GITHUB_USERNAME' has been copied!\n"
 				read -p "Please go add it to your GitHub Account"
 else
 				echo "Skipping '$GITHUB_USERNAME'"
