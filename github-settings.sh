@@ -1,35 +1,63 @@
-#! /bin/bash
+#!/usr/local/bin/bash
 
-GITHUB1=("jgguinther" "jgguinther09@gmail.com")
-GITHUB2=("jguintherTechtonic" "jacob.guinther@techtonic.com")
 GITHUB_ACCOUNTS=(
-	GITHUB1[@]
-	GITHUB2[@]
-)
+				jgguinther
+				jgguinther09@gmail.com
+				jguintherTechtonic
+				jacob.guinther@techtonic.com
+				)
+
 printf "\nThis Script knows about the following GitHub accounts: \n"
 
-for ((i = 1 ; i <= "${#GITHUB_ACCOUNTS[@]}" ; i++)); do
-	ACCOUNT=("GITHUB$i")
-	echo "- ${!ACCOUNT[0]}"
+for ((i = 0 ; i <= "${#GITHUB_ACCOUNTS[@]}" ; i++)); do
+				echo ${GITHUB_ACCOUNTS[i]}
+				i=$(( i + 1 ))
 done
 
-for ((i = 1 ; i <= "${#GITHUB_ACCOUNTS[@]}" ; i++)); do
-	printf "\n"
-	ACCOUNT=("GITHUB$i")
-	read -p "Would you like to create ssh key for: '${!ACCOUNT[0]}' [Y/n]" CHOICE
-	if [[ $CHOICE == "y" || \
-		$CHOICE == "Y" || \
-		$CHOICE == "yes" || \
-		$CHOICE == "Yes" ]]; then
-			echo "Creating SSH Keys"
-			ssh-keygen -t rsa -C "${!ACCOUNT[1]}" -f ~/.ssh/id_rsa_${!ACCOUNT[0]}
-			echo "Adding ssh key to ssh-agent"
-			ssh-add ~/.ssh/id_rsa_${!ACCOUNT[0]}
-			pbcopy < ~/.ssh/id_rsa_${!ACCOUNT[0]}
-			echo "Your ssh key for '${!ACCOUNT[0]}' has been copied!"
-			read -p "Please go add it to your GitHub Account"
-		else
-			echo "Skipping '${!ACCOUNT[0]}'"
-	fi
+for ((i = 0 ; i <= (( "${#GITHUB_ACCOUNTS[@]}" - 1 )) ; i++)); do
+				GITHUB_USERNAME=${GITHUB_ACCOUNTS[i]}
+				GITHUB_EMAIL=${GITHUB_ACCOUNTS[(( i + 1 ))]}
+				printf "\n"
+				read -p "Would you like to create ssh key for: '$GITHUB_USERNAME' [Y/n]" CHOICE
+
+				if [[ $CHOICE == "y" || \
+								$CHOICE == "Y" || \
+								$CHOICE == "yes" || \
+								$CHOICE == "Yes" ]]; then
+
+				if [[ ! -d ~/Development ]] ; then
+								mkdir ~/Development
+				fi
+
+				if [[ ! -f ~/.ssh/config ]] ; then
+								touch ~/.ssh/config
+				fi
+
+				mkdir ~/Development/$GITHUB_USERNAME
+				touch ~/Development/$GITHUB_USERNAME/.gitconfig
+				
+				cat << EOF >> ~/.ssh/config 
+#GitHub Account: $GITHUB_USERNAME
+  Host github.com-$GITHUB_USERNAME
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github-$GITHUB_USERNAME
+EOF
+				cat << EOF >> ~/Development/$GITHUB_USERNAME/.gitconfig 
+[user]
+  name=$GITHUB_USERNAME
+	email=$GITHUB_EMAIL
+EOF
+				echo "Creating SSH Keys"
+				ssh-keygen -t rsa -C "$GITHUB_EMAIL" -f ~/.ssh/id_rsa_$GITHUB_USERNAME
+				echo "Adding ssh key to ssh-agent"
+				ssh-add ~/.ssh/id_rsa_$GITHUB_USERNAME
+				pbcopy < ~/.ssh/id_rsa_$GITHUB_USERNAME
+				echo "Your ssh key for '$GITHUB_USERNAME' has been copied!"
+				read -p "Please go add it to your GitHub Account"
+else
+				echo "Skipping '$GITHUB_USERNAME'"
+				fi
+				i=$(( i + 1 ))
 done
 
