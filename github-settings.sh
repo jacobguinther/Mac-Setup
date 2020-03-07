@@ -1,5 +1,6 @@
 #!/usr/local/bin/bash
 
+printf "Setting Up GitHub Accounts"
 GITHUB_ACCOUNTS=(
 				jgguinther
 				jgguinther09@gmail.com
@@ -51,6 +52,11 @@ EOF
   name=$GITHUB_USERNAME
 	email=$GITHUB_EMAIL
 EOF
+				cat << EOF >> ~/.gitconfig
+
+[includeIf "gitdir:~/Development/$GITHUB_USERNAME/"]
+    path = ~/Development/$GITHUB_USERNAME/.gitconfig
+EOF
 				echo "Creating SSH Keys"
 				ssh-keygen -t rsa -b 4096 -C "$GITHUB_EMAIL" -f ~/.ssh/id_rsa_$GITHUB_USERNAME
 				echo "Adding ssh key to ssh-agent"
@@ -63,4 +69,6 @@ else
 				fi
 				i=$(( i + 1 ))
 done
-
+printf "All keys known to SSH-Agent:"
+ssh-add -l
+printf "Finish Setting Up GitHub Accounts"
