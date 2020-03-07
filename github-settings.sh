@@ -3,6 +3,8 @@
 GITHUB_ACCOUNTS=(
 				jgguinther
 				jgguinther09@gmail.com
+				jacobguinther
+				jacobgguinther@gmail.com
 				jguintherTechtonic
 				jacob.guinther@techtonic.com
 				)
@@ -50,10 +52,10 @@ EOF
 	email=$GITHUB_EMAIL
 EOF
 				echo "Creating SSH Keys"
-				ssh-keygen -t rsa -C "$GITHUB_EMAIL" -f ~/.ssh/id_rsa_$GITHUB_USERNAME
+				ssh-keygen -t rsa -b 4096 -C "$GITHUB_EMAIL" -f ~/.ssh/id_rsa_$GITHUB_USERNAME
 				echo "Adding ssh key to ssh-agent"
 				ssh-add ~/.ssh/id_rsa_$GITHUB_USERNAME
-				pbcopy < ~/.ssh/id_rsa_$GITHUB_USERNAME
+				pbcopy < ~/.ssh/id_rsa_$GITHUB_USERNAME.pub
 				printf "\nYour ssh key for '$GITHUB_USERNAME' has been copied!\n"
 				read -p "Please go add it to your GitHub Account"
 else
