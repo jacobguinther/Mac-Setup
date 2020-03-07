@@ -5,6 +5,11 @@ Good Examples:
 https://gist.github.com/bradp/bea76b16d3325f5c47d4
 
 https://github.com/ajmalsiddiqui/dotfiles
+
+Detect OS:
+
+https://github.com/dylanaraps/neofetch/issues/433
+
 ## Install Homebrew
 ```sh
 xcode-select --install
