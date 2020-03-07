@@ -74,4 +74,6 @@ https://github.com/junegunn/vim-plug/wiki/tutorial
 #### MacOS User Preferences
 https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
 #### DotFiles
+Simple example repo for hadling dot files.
+sync() function lives in bootstrap.exclude.sh
 https://github.com/ajmalsiddiqui/dotfiles
