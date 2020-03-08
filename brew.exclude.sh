@@ -1,13 +1,14 @@
 #! /usr/local/bin/bash
-# HOMEBREW
+
+PROMPT='[bootstrap]'
 
 # Install homebrew if it is not installed
 which brew 1>&/dev/null
 if [ ! "$?" -eq 0 ] ; then
-	echo "Homebrew not installed. Attempting to install Homebrew"
+	echo "$PROMPT Homebrew not installed. Attempting to install Homebrew"
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	if [ ! "$?" -eq 0 ] ; then
-		echo "Something went wrong. Exiting..." && exit 1
+		echo "$PROMPT Something went wrong. Exiting..." && exit 1
 	fi
 fi
 
@@ -64,14 +65,14 @@ PRINT_COLUMNS () {
 	printf "\n"
 }
 
-printf "\nINSTALLING THE FOLLOWING...\n\n"
-printf "BREW FORMULAE:"
+printf "$PROMPT INSTALLING THE FOLLOWING...\n\n"
+printf "$PROMPT BREW FORMULAE:"
 PRINT_COLUMNS "${FORMULAE[@]}"
-printf "BREW CASKS:"
+printf "$PROMPT BREW CASKS:"
 PRINT_COLUMNS "${CASKS_DEV[@]}"
-printf "OPTIONAL CASKS:"
+printf "$PROMPT OPTIONAL CASKS:"
 PRINT_COLUMNS "${CASKS_OTHER[@]}"
-read -p "Would you like to install optional casks?: [Y/N]" CHOICE_OPTIONAL_CASKS
+read -p "$PROMPT Would you like to install optional casks?: [Y/N]" CHOICE_OPTIONAL_CASKS
 
 echo "Installing xcode-stuff"
 xcode-select --install
@@ -79,27 +80,27 @@ xcode-select --install
 # Check for Homebrew,
 # Install if we don't have it
 if test ! $(which brew); then
-  echo "Installing homebrew..."
+  echo "$PROMPT Installing homebrew..."
   /usr/bin/ruby \
   -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
   </dev/null
 fi
 
 # Update homebrew recipes
-echo "Updating homebrew..."
+echo "$PROMPT Updating homebrew..."
 brew update && brew upgrade
 
-echo "Installing Git..."
+echo "$PROMPT Installing Git..."
 brew install git
 
-echo "Installing brew git utilities..."
+echo "$PROMPT Installing brew git utilities..."
 brew install git-flow
 
-echo "Installing other brew stuff..."
+echo "$PROMPT Installing other brew stuff..."
 brew install wget
 brew install trash
 
-echo "Installing Formulae"
+echo "$PROMPT Installing Formulae"
 brew install ${FORMULAE[@]}
 
 # setting up nvm
@@ -107,14 +108,14 @@ mkdir ~/.nvm
 touch ~/.nvmrc
 # need to manually download the latest version
 
-echo "Cleaning Up Brew"
+echo "$PROMPT Cleaning Up Brew"
 brew cleanup
 
-echo "Installing Homebrew Casks"
+echo "$PROMPT Installing Homebrew Casks"
 brew cask
 
 # INSTALL CASKS
-echo "Installing Apps With Cask..."
+echo "$PROMPT Installing Apps With Cask..."
 
 # OPTION 1 (for all users)
 # Install apps to /Applications
@@ -128,12 +129,12 @@ if [[ $CHOICE_OPTIONAL_CASKS == "y" || \
  	$CHOICE_OPTIONAL_CASKS == "Y" || \
  	$CHOICE_OPTIONAL_CASKS == "yes" || \
  	$CHOICE_OPTIONAL_CASKS == "Yes" ]]; then
-        echo "INSTALLING OPTIONAL CASKS"
+        echo "$PROMPT INSTALLING OPTIONAL CASKS"
 	brew cask install ${CASKS_OTHER[@]}
 else
-        echo "SKIPPING OPTIONAL CASKS"
+        echo "$PROMPT SKIPPING OPTIONAL CASKS"
 fi
 
 brew cleanup
 
-echo "Use NVM to download a version of node"
+echo "$PROMPT Use NVM to download a version of node"

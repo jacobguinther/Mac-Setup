@@ -1,6 +1,8 @@
 #!/usr/local/bin/bash
 
-printf "Setting Up GitHub Accounts"
+PROMPT='[github]'
+
+printf "\n$PROMPT Setting Up GitHub Accounts"
 GITHUB_ACCOUNTS=(
 				jgguinther
 				jgguinther09@gmail.com
@@ -10,18 +12,17 @@ GITHUB_ACCOUNTS=(
 				jacob.guinther@techtonic.com
 				)
 
-printf "\nThis Script knows about the following GitHub accounts: \n"
+printf "\n$PROMPT This Script knows about the following GitHub accounts: \n"
 
 for ((i = 0 ; i <= "${#GITHUB_ACCOUNTS[@]}" ; i++)); do
-				echo ${GITHUB_ACCOUNTS[i]}
+				echo $PROMPT ${GITHUB_ACCOUNTS[i]}
 				i=$(( i + 1 ))
 done
 
 for ((i = 0 ; i <= (( "${#GITHUB_ACCOUNTS[@]}" - 1 )) ; i++)); do
 				GITHUB_USERNAME=${GITHUB_ACCOUNTS[i]}
 				GITHUB_EMAIL=${GITHUB_ACCOUNTS[(( i + 1 ))]}
-				printf "\n"
-				read -p "Would you like to create ssh key for: '$GITHUB_USERNAME' [Y/n]" CHOICE
+				read -p "$PROMPT Would you like to create ssh key for: '$GITHUB_USERNAME' [Y/n]" CHOICE
 
 				if [[ $CHOICE == "y" || \
 								$CHOICE == "Y" || \
@@ -57,18 +58,18 @@ EOF
 [includeIf "gitdir:~/Development/$GITHUB_USERNAME/"]
     path = ~/Development/$GITHUB_USERNAME/.gitconfig
 EOF
-				echo "Creating SSH Keys"
+				echo "$PROMPT Creating SSH Keys"
 				ssh-keygen -t rsa -b 4096 -C "$GITHUB_EMAIL" -f ~/.ssh/id_rsa_$GITHUB_USERNAME
-				echo "Adding ssh key to ssh-agent"
+				echo "$PROMPT Adding ssh key to ssh-agent"
 				ssh-add ~/.ssh/id_rsa_$GITHUB_USERNAME
 				pbcopy < ~/.ssh/id_rsa_$GITHUB_USERNAME.pub
-				printf "\nYour ssh key for '$GITHUB_USERNAME' has been copied!\n"
-				read -p "Please go add it to your GitHub Account"
+				printf "\n$PROMPT Your ssh key for '$GITHUB_USERNAME' has been copied!\n"
+				read -p "$PROMPT Please go add it to your GitHub Account"
 else
-				echo "Skipping '$GITHUB_USERNAME'"
+				echo "$PROMPT Skipping '$GITHUB_USERNAME'"
 				fi
 				i=$(( i + 1 ))
 done
-printf "All keys known to SSH-Agent:"
+printf "$PROMPT All keys known to SSH-Agent:\n"
 ssh-add -l
-printf "Finish Setting Up GitHub Accounts"
+printf "$PROMPT Finish Setting Up GitHub Accounts"
