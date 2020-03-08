@@ -2,7 +2,7 @@
 
 PROMPT='[github]'
 
-printf "\n$PROMPT Setting Up GitHub Accounts"
+printf "$PROMPT Setting Up GitHub Accounts"
 GITHUB_ACCOUNTS=(
 				jgguinther
 				jgguinther09@gmail.com
