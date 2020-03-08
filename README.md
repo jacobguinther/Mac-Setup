@@ -2,13 +2,12 @@
 
 Good Examples: 
 
-https://gist.github.com/bradp/bea76b16d3325f5c47d4
+[Mac Setup Script: Brew and Defaults](https://gist.github.com/bradp/bea76b16d3325f5c47d4)
 
-https://github.com/ajmalsiddiqui/dotfiles
+[Dot Files and Excludes](https://github.com/ajmalsiddiqui/dotfiles)
 
-Detect OS:
+[Method for Detecting OS](https://github.com/dylanaraps/neofetch/issues/433)
 
-https://github.com/dylanaraps/neofetch/issues/433
 
 ## Install Homebrew
 ```sh
@@ -77,16 +76,14 @@ https://github.com/faktiva/vim-config
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-https://github.com/junegunn/vim-plug
-https://github.com/junegunn/vim-plug/wiki/tutorial
+
+[Vim Plug](https://github.com/junegunn/vim-plug)
+
+[Vim Plug - wiki](https://github.com/junegunn/vim-plug/wiki/tutorial)
+
 #### Find Plugins
-https://vimawesome.com/plugin/bash-support-vim
-https://github.com/junegunn/vim-plug/wiki/tutorial
+
+[Vim Awesome](https://vimawesome.com/plugin/bash-support-vim)
+
 #### MacOS User Preferences
-https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
-#### DotFiles
-Simple example repo for hadling dot files.
-
-sync() function lives in bootstrap.exclude.sh
-
-https://github.com/ajmalsiddiqui/dotfiles
+[Change MacOS User Preferences - CLI](https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/)
