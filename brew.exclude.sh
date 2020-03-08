@@ -20,7 +20,6 @@ FORMULAE=(
   git flow
   kubernetes-cli
   minikube
-  mongodb-community
   nvm
   redis
   trash
