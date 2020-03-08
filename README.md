@@ -1,4 +1,15 @@
 # Mac-Setup
+
+Good Examples: 
+
+https://gist.github.com/bradp/bea76b16d3325f5c47d4
+
+https://github.com/ajmalsiddiqui/dotfiles
+
+Detect OS:
+
+https://github.com/dylanaraps/neofetch/issues/433
+
 ## Install Homebrew
 ```sh
 xcode-select --install
@@ -73,3 +84,9 @@ https://vimawesome.com/plugin/bash-support-vim
 https://github.com/junegunn/vim-plug/wiki/tutorial
 #### MacOS User Preferences
 https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
+#### DotFiles
+Simple example repo for hadling dot files.
+
+sync() function lives in bootstrap.exclude.sh
+
+https://github.com/ajmalsiddiqui/dotfiles
