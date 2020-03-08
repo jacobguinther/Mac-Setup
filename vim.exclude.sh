@@ -1,4 +1,4 @@
-# SET UP VIM
+#!/bin/bash
 
-# commands to run at end
-vim -c 'source %' -c 'PlugInstall' -c 'qa!' 
+# SET UP VIM
+vim -c '~/.vimrc' -c 'PlugInstall' -c 'qa!' 

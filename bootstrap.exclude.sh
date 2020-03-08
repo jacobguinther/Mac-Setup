@@ -30,7 +30,7 @@ link () {
 	fi
 }
 
-install_tools () {
+install_brew_stuff () {
 	if [ $( echo "$OSTYPE" | grep 'darwin' ) ] ; then
 		echo "$PROMPT Detected macOS"
 		echo "$PROMPT This utility will install useful utilities using Homebrew"
@@ -38,13 +38,13 @@ install_tools () {
 		if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
 			echo "$PROMPT Installing useful stuff using brew. This may take a while..."
 			sh brew.exclude.sh
+			sh mac_settings.exclude.sh
 		else
 			echo "$PROMPT Brew installation cancelled by user"
 		fi
 	else
 		echo "$PROMPT Skipping installations using Homebrew because MacOS was not detected..."
 	fi
-
 # 	if [ $( echo "$OSTYPE" | grep 'linux-gnu' ) ] ; then
 # 		echo "$PROMPT Detected Linux"
 # 		echo "$PROMPT This utility will install useful utilities using apt (this has been tested on Debian buster)"
@@ -60,7 +60,15 @@ install_tools () {
 # 		echo "$PROMPT Skipping installations using apt because Debian/Linux was not detected..."
 #  	fi
  }
+configure_github () {
+  sh github.exclude.sh
+}
+vim_plugin_install () {
+  sh vim.exclude.sh
+}
 
 # init
 link
-install_tools
+install_brew_stuff
+configure_github
+vim_plugin_install
