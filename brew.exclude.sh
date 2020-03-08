@@ -89,16 +89,6 @@ fi
 echo "$PROMPT Updating homebrew..."
 brew update && brew upgrade
 
-echo "$PROMPT Installing Git..."
-brew install git
-
-echo "$PROMPT Installing brew git utilities..."
-brew install git-flow
-
-echo "$PROMPT Installing other brew stuff..."
-brew install wget
-brew install trash
-
 echo "$PROMPT Installing Formulae"
 brew install ${FORMULAE[@]}
 
