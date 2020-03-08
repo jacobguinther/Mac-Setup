@@ -26,3 +26,19 @@ alias k="kubectl"
 PATH="/usr/bin/python:usr/local/bin/python3:$PATH"
 PATH="/Users/jgguinther/Documents/ShellScripts:${PATH}"
 export PATH
+
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+# This loads nvm bash_completion
+man() {
+	env \
+		LESS_TERMCAP_mb=$(printf "\e[1;32m") \
+		LESS_TERMCAP_md=$(printf "\e[1;32m") \
+		LESS_TERMCAP_me=$(printf "\e[0m") \
+		LESS_TERMCAP_se=$(printf "\e[0m") \
+		LESS_TERMCAP_so=$(printf "\e[1;33m") \
+		LESS_TERMCAP_ue=$(printf "\e[0m") \
+		LESS_TERMCAP_us=$(printf "\e[1;4;31m") \
+		man "$@"
+}

@@ -44,13 +44,13 @@ CASKS_DEV=(
 )
 
 CASKS_OTHER=(
-calibre
-deluge
-dropbox
-gimp
-nordvpn
-plex
-vlc
+  calibre
+  deluge
+  dropbox
+  gimp
+  nordvpn
+  plex
+  vlc
 )
 
 
@@ -73,14 +73,6 @@ printf "OPTIONAL CASKS:"
 PRINT_COLUMNS "${CASKS_OTHER[@]}"
 read -p "Would you like to install optional casks?: [Y/N]" CHOICE_OPTIONAL_CASKS
 
-# https://gist.github.com/Jonalogy/54091c98946cfe4f8cdab2bea79430f9
-# @TODO Create SSH keys for Github
-# ssh-keygen -t rsa
-# @TODO Add SSH keys to Github
-#echo "Please add this public key to Github \n"
-#echo "https://github.com/account/ssh \n"
-#read -p "Press [Enter] key after this..."
-
 echo "Installing xcode-stuff"
 xcode-select --install
 
@@ -100,12 +92,6 @@ brew update && brew upgrade
 echo "Installing Git..."
 brew install git
 
-echo "Git config"
-
-git config --global user.name jacobguinther
-git config --global user.email jacobgguinther@gmail.com
-
-
 echo "Installing brew git utilities..."
 brew install git-flow
 
@@ -113,7 +99,7 @@ echo "Installing other brew stuff..."
 brew install wget
 brew install trash
 
-echo "installing formulae"
+echo "Installing Formulae"
 brew install ${FORMULAE[@]}
 
 # setting up nvm
@@ -121,14 +107,14 @@ mkdir ~/.nvm
 touch ~/.nvmrc
 # need to manually download the latest version
 
-echo "Cleaning up brew"
+echo "Cleaning Up Brew"
 brew cleanup
 
-echo "Installing homebrew cask"
+echo "Installing Homebrew Casks"
 brew cask
 
 # INSTALL CASKS
-echo "installing apps with Cask..."
+echo "Installing Apps With Cask..."
 
 # OPTION 1 (for all users)
 # Install apps to /Applications
@@ -150,6 +136,4 @@ fi
 
 brew cleanup
 
-echo "Setting some Mac settings..."
-# @TODO Finder Window
 echo "Use NVM to download a version of node"
