@@ -26,13 +26,14 @@ FORMULAE=(
   tree
   wget
   yarn
-  zsh
 )
 
 CASKS_DEV=(
   bitwarden
+	boostnote
   brave-browser
   docker
+	iterm2
   mysqlworkbench
   nordvpn
   postman
