@@ -1,5 +1,14 @@
 # Mac-Setup
 
+#### This Script will setup the following:
+- Symlink Dot Files
+- Install xcode
+- Install Brew Formulae and Casks
+- Install nodemon
+- Setup Some Mac Defaults
+- Setup Git Directories for each user specified using SSH
+- Install Vim Plugins
+
 ```sh
 git clone https://github.com/jacobguinther/Mac-Setup.git
 cd Mac-Setup/
