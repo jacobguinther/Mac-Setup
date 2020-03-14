@@ -67,8 +67,8 @@ brew cask list &&
 echo "\nNPM" &&
 npm list -g --depth 0
 ```
-## Vim Setup
-#### Plugin Manager
+
+#### Vim Plugin Manager
 ```sh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
