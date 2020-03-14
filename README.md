@@ -1,8 +1,9 @@
 # Mac-Setup
 
 ```sh
-git clone #repo
-
+git clone https://github.com/jacobguinther/Mac-Setup.git
+cd Mac-Setup/
+/bin/bash bootstrap.exclude.sh
 ```
   
 #### Verify Installation
