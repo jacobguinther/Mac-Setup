@@ -67,10 +67,7 @@ brew cask list &&
 echo "\nNPM" &&
 npm list -g --depth 0
 ```
-## Vim Option #1
-#### Vim Config
-https://github.com/faktiva/vim-config
-## Vim Option #2
+## Vim Setup
 #### Plugin Manager
 ```sh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -87,3 +84,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 #### MacOS User Preferences
 [Change MacOS User Preferences - CLI](https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/)
+
+#### Set Up Iterm2
+preferences>General>Preferences>
+Check: Load preferences from a custom folder or URL
+Check: Save changes to folder when iTerm2 quits
