@@ -1,6 +1,6 @@
 # Mac-Setup
 
-#### This Script will setup the following:
+### This Script Will Setup The Following:
 - Symlink Dot Files
 - Install xcode
 - Install Brew Formulae and Casks
