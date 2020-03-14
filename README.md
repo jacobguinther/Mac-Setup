@@ -86,6 +86,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 [Change MacOS User Preferences - CLI](https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/)
 
 #### Set Up Iterm2
-preferences>General>Preferences>
+preferences > General > Preferences
+
 Check: Load preferences from a custom folder or URL
+
 Check: Save changes to folder when iTerm2 quits
