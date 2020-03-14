@@ -91,3 +91,7 @@ preferences > General > Preferences
 Check: Load preferences from a custom folder or URL
 
 Check: Save changes to folder when iTerm2 quits
+
+#### Run on Start Up: Spectacle
+
+System Preferences > Users & Groups > *USER* > Login Items > *ADD APPLICATION*
