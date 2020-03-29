@@ -8,8 +8,6 @@ GITHUB_ACCOUNTS=(
 				jgguinther09@gmail.com
 				jacobguinther
 				jacobgguinther@gmail.com
-				jguintherTechtonic
-				jacob.guinther@techtonic.com
 				)
 
 printf "\n$PROMPT This Script knows about the following GitHub accounts: \n"
