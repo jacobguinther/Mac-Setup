@@ -6,7 +6,7 @@
 - Install Brew Formulae and Casks
 - Install nodemon
 - Setup Some Mac Defaults
-- Setup Git Directories for each user specified using SSH
+- Setup Directories for each GitHub account specified
 - Install Vim Plugins
 
 ```sh
