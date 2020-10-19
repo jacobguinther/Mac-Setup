@@ -2,6 +2,8 @@
 
 PROMPT='[github]'
 
+git config --global core.excludesfile ~/.gitignore_global
+
 printf "$PROMPT Setting Up GitHub Accounts"
 GITHUB_ACCOUNTS=(
 				jgguinther
