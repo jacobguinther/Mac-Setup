@@ -73,3 +73,8 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+ulimit -n 8096
