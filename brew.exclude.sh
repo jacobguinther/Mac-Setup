@@ -101,9 +101,6 @@ touch ~/.nvmrc
 echo "$PROMPT Cleaning Up Brew"
 brew cleanup
 
-echo "$PROMPT Installing Homebrew Casks"
-brew cask
-
 # INSTALL CASKS
 echo "$PROMPT Installing Apps With Cask..."
 
@@ -113,14 +110,14 @@ echo "$PROMPT Installing Apps With Cask..."
 #brew cask install --appdir="/Applications" ${apps[@]}
 
 # OPTION 2 (for current user)
-brew cask install ${CASKS_DEV[@]}
+brew install ${CASKS_DEV[@]} --cask
 
 if [[ $CHOICE_OPTIONAL_CASKS == "y" || \
  	$CHOICE_OPTIONAL_CASKS == "Y" || \
  	$CHOICE_OPTIONAL_CASKS == "yes" || \
  	$CHOICE_OPTIONAL_CASKS == "Yes" ]]; then
         echo "$PROMPT INSTALLING OPTIONAL CASKS"
-	brew cask install ${CASKS_OTHER[@]}
+	brew install ${CASKS_OTHER[@]} --cask
 else
         echo "$PROMPT SKIPPING OPTIONAL CASKS"
 fi
