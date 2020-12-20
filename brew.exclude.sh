@@ -110,14 +110,14 @@ echo "$PROMPT Installing Apps With Cask..."
 #brew cask install --appdir="/Applications" ${apps[@]}
 
 # OPTION 2 (for current user)
-brew install ${CASKS_DEV[@]} --cask
+brew install --cask ${CASKS_DEV[@]} 
 
 if [[ $CHOICE_OPTIONAL_CASKS == "y" || \
  	$CHOICE_OPTIONAL_CASKS == "Y" || \
  	$CHOICE_OPTIONAL_CASKS == "yes" || \
  	$CHOICE_OPTIONAL_CASKS == "Yes" ]]; then
         echo "$PROMPT INSTALLING OPTIONAL CASKS"
-	brew install ${CASKS_OTHER[@]} --cask
+	brew install --cask ${CASKS_OTHER[@]} 
 else
         echo "$PROMPT SKIPPING OPTIONAL CASKS"
 fi
