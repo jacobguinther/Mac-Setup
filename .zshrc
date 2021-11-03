@@ -1,9 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
 ZSH_THEME="common-jg"
 DEFAULT_USER=`whoami`
 
@@ -14,7 +8,7 @@ DISABLE_UPDATE_PROMPT="true"
 
 # PLUGINS
 plugins=(git)
-
+export ZSH="/Users/jacobguinther/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 # USER CONFIGURATION
@@ -22,9 +16,12 @@ source $ZSH/oh-my-zsh.sh
 
 # ALIASES 
 alias k="kubectl"
+alias bsl="cd /Users/jacobguinther/Development/jacobguinther/Client/BlockScience"
+
 
 PATH="/usr/bin/python:usr/local/bin/python3:$PATH"
 PATH="/Users/jgguinther/Documents/ShellScripts:${PATH}"
+PATH="/Users/jacobguinther/Library/Python/3.9/bin:${PATH}"
 export PATH
 
   export NVM_DIR="$HOME/.nvm"
@@ -46,35 +43,31 @@ man() {
 }
 
 # heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/jacobguinther/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
-
+ HEROKU_AC_ZSH_SETUP_PATH=/Users/jacobguinther/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+ 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 ulimit -n 8096
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/jacobguinther/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/jacobguinther/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/jacobguinther/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/jacobguinther/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PATH=/Users/jacobguinther/.pyenv/versions/3.7.2/bin:$PATH
+export PATH=$PATH:$HOME/bin
